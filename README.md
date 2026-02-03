@@ -26,8 +26,8 @@ Antes de subir os containers, você deve configurar suas variáveis de ambiente:
   * N8N_USER e N8N_PASSWORD: Credenciais para acesso ao painel do n8n.
   * POSTGRES_DB, POSTGRES_USER e POSTGRES_PASSWORD: Dados de conexão para o banco de dados.
 
-⚠️ IMPORTANTE
-Segurança: Nunca realize o commit do arquivo .env no Git. Utilize senhas fortes contendo letras, números e símbolos.
+> [!WARNING]
+Nunca realize o commit do arquivo .env no Git. Utilize senhas fortes contendo letras, números e símbolos.
 
 ## 📦 Como rodar
 Com o terminal aberto na pasta raiz do projeto, execute os comandos abaixo na sequência:
@@ -70,12 +70,12 @@ O container oficial do N8N roda em Aphine (Linux), mas não trás algumas ferram
    ~~~
 
 ### Instalando o Python
-Comando simples do APK para instalação do Python
+Comando simples do APK para instalação do Python.
 ~~~
 apk add --no-cache python3 py3-pip
 ~~~
-
-⚠️ IMPORTANTE: Não é possível instalar diretamente as bibliotecas Python usando pip (ou pip3), isso pode ser feito somente via APK dessa forma:
+> [!IMPORTANT]
+Não é possível instalar diretamente as bibliotecas Python usando pip (ou pip3), isso pode ser feito somente via APK dessa forma:
 ~~~
 apk add py3-NOME_BIBLIOTECA
 ~~~
@@ -83,6 +83,12 @@ Exemplo:
 ~~~
 apk add py3-requests
 ~~~
+
+### Instalando o NPM
+Outra ferramenta importante para o N8N é o NPM, um gestor de pacotes utilizados para subir os COMMUNITY NODES. Fazendo essa instalação você pode instalar os pacotes (NPM) tanto pela interface do N8N, quanto pelo terminal. A sugestão é sempre fazer isso pela interface. Para instalar o NPM use o comando:
+~~~~
+apk add npm
+~~~~
 
 ## 📋 Informações Técnicas
 * Persistência: Foram configurados volumes locais nomeados (n8n_data, postgres_data, redis_data) para garantir que seus fluxos e dados não sejam perdidos ao reiniciar os containers.
