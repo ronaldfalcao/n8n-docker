@@ -115,7 +115,7 @@ Outra ferramenta importante para o N8N é o NPM, um gestor de pacotes utilizados
 
 ```sh
 apk add npm
-```sh
+```
 
 ## 📋 Informações Técnicas
 * Persistência: Foram configurados volumes locais nomeados (n8n_data, postgres_data, redis_data) para garantir que seus fluxos e dados não sejam perdidos ao reiniciar os containers.
