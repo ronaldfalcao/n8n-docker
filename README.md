@@ -1,4 +1,4 @@
-# Ambiente de Estudo n8n (Docker)
+# Ambiente de Estudo N8N (Docker Desktop)
 
 ![n8n](https://img.shields.io/badge/n8n-next-red?logo=n8n)
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
