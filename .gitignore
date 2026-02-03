@@ -1,0 +1,33 @@
+# Arquivos projeto
+.env
+Access-Keys.txt
+n8n.webp
+n8n.ico
+OLD/
+
+# Backups
+*.sql
+*.dump
+backup_*
+
+# Logs
+*.log
+
+# Dados locais
+data/
+logs/
+
+# Docker
+.dockerignore
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
