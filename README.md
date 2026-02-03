@@ -1,4 +1,10 @@
 # Ambiente de Estudo n8n (Docker)
+![n8n](https://img.shields.io/badge/n8n-next-red?logo=n8n)
+![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16--alpine-blue?logo=postgresql)
+![Redis](https://img.shields.io/badge/Redis-7--alpine-red?logo=redis)
+![Docker](https://img.shields.io/badge/Docker-Enabled-blue?logo=docker)
+
 Este repositório contém a infraestrutura necessária para subir um ambiente completo de automação com n8n, utilizando PostgreSQL como banco de dados principal e Redis para gerenciamento de filas (Queue Mode).
 
 ## 🚀 Estrutura do Projeto
@@ -28,9 +34,13 @@ Com o terminal aberto na pasta raiz do projeto, execute os comandos abaixo na se
 
 ### PowerShell
 1. Construir a imagem customizada
+~~~
 docker-compose build --no-cache
+~~~
 2. Subir os serviços em segundo plano
+~~~
 docker-compose up -d
+~~~
 
 ## 📋 Informações Técnicas
 * Persistência: Foram configurados volumes locais nomeados (n8n_data, postgres_data, redis_data) para garantir que seus fluxos e dados não sejam perdidos ao reiniciar os containers.
