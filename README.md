@@ -118,6 +118,7 @@ apk add npm
 ```
 
 ## 📋 Informações Técnicas
+
 * Persistência: Foram configurados volumes locais nomeados (n8n_data, postgres_data, redis_data) para garantir que seus fluxos e dados não sejam perdidos ao reiniciar os containers.
 * Performance: O ambiente já conta com limites de CPU e Memória definidos para evitar travamentos no Docker Desktop.
 * Modo de Execução: Configurado por padrão em queue mode para suportar maior volume de execuções simultâneas.
