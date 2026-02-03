@@ -26,7 +26,7 @@ Antes de subir os containers, você deve configurar suas variáveis de ambiente:
   * N8N_USER e N8N_PASSWORD: Credenciais para acesso ao painel do n8n.
   * POSTGRES_DB, POSTGRES_USER e POSTGRES_PASSWORD: Dados de conexão para o banco de dados.
 
-[!IMPORTANT]
+⚠️ IMPORTANTE
 Segurança: Nunca realize o commit do arquivo .env no Git. Utilize senhas fortes contendo letras, números e símbolos.
 
 ## 📦 Como rodar
@@ -40,6 +40,48 @@ docker-compose build --no-cache
 2. Subir os serviços em segundo plano
 ~~~
 docker-compose up -d
+~~~
+
+## 💡Dicas
+O container oficial do N8N roda em Aphine (Linux), mas não trás algumas ferramentas importantes e que podem ser necessárias para o dia a dia de quem cria e gerencia automações pelo N8N. Abaixo algumas dessas ferramentas e como elas são instaladas no container. Lembrando que, nesse caso, não há modificações na imagem que mantive a oficial. Foi uma decisão para não dar complexidade ao ambiente e não customizar.
+
+### APK (instalador de ferramentas oficial do Alphine)
+
+1. Busque pela arquitetura correta da distribuição
+   ~~~~
+   http://dl-cdn.alpinelinux.org/alpine/latest-stable/main/
+   ~~~~
+   No meu caso usei a x86_64, que deve ser a padrão.
+   ~~~
+   http://dl-cdn.alpinelinux.org/alpine/latest-stable/main/x86_64/
+   ~~~
+2. Procure pelo arquivo "apk-tools-static-*", isso vai mudar conforme a versão que você for utilizar. Abaixo dei o exemplo corrente nesse momento. Após verificar a versão, modifique o nome do arquivo e use o comando WGET para baixá-lo no seu container.
+   ~~~
+   wget "http://dl-cdn.alpinelinux.org/alpine/latest-stable/main/x86_64/apk-tools-static-3.0.
+   4-r0.apk"
+   ~~~
+3. Descompacte o arquivo baixado em uma pasta, sugestão criar uma pasta downloads em home (mkdir home/downloads), entrar na pasta (cd home/downloads) e rodar o comando:
+   ~~~
+   tar -xzf apk-tools-static-3.0.4-r0.apk
+   ~~~
+4. Agora você consegue rodar o arquivo local e instalar o APK. A partir disso você passa a ter o gerenciador de pacotes APK instalado e consegue, por ele, fazer as instalações de outras ferramentas que necessitar.
+   ~~~
+   ./apk.static -X http://dl-cdn.alpinelinux.org/alpine/v3.22/main -U --allow-untrusted --initdb add apk-tools
+   ~~~
+
+### Instalando o Python
+Comando simples do APK para instalação do Python
+~~~
+apk add --no-cache python3 py3-pip
+~~~
+
+⚠️ IMPORTANTE: Não é possível instalar diretamente as bibliotecas Python usando pip (ou pip3), isso pode ser feito somente via APK dessa forma:
+~~~
+apk add py3-NOME_BIBLIOTECA
+~~~
+Exemplo:
+~~~
+apk add py3-requests
 ~~~
 
 ## 📋 Informações Técnicas
