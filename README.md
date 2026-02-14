@@ -154,14 +154,14 @@ Quais são os passos para você utilizá-lo?
 6) Agora deve aparecer o seu container do N8N, ative o ENDPOINT e acesse a SUA URL PERSONALIZADA. Aqui uma atenção, o NGROK mostra uma tela inicial. Basta clicar em "Visit Site" para ele redirecionar para o seu N8N local.
 
 > [!IMPORTANT]
-Eu fiz tudo isso e não funcionou de primeira (oi?). Precisei alterar duas variáveis de ambiente:
+   Eu fiz tudo isso e não funcionou de primeira (oi?). Precisei alterar duas variáveis de ambiente:
 
-```sh
-N8N_EDITOR_BASE_URL
-WEBHOOK_URL
-```
+   ```sh
+   N8N_EDITOR_BASE_URL
+   WEBHOOK_URL
+   ```
 
- Após alteradas tive que recriar o container para que funcionasse. Eis um dos mistérios da TI, algo que era para funcionar não funcionou. E por não estar com tempo não fiz um novo teste do zero. Então, fica a dica caso as coisas não funcionem de primeira. Os arquivos estão atualizados e basta você preencher como eu fiz. Estou colocando isso aqui porque alguém pode passar pelo que eu passei e dou o caminho das pedras.
+   Após alteradas tive que recriar o container para que funcionasse. Eis um dos mistérios da TI, algo que era para funcionar não funcionou. E por não estar com tempo não fiz um novo teste do zero. Então, fica a dica caso as coisas não funcionem de primeira. Os arquivos estão atualizados e basta você preencher como eu fiz. Estou colocando isso aqui porque alguém pode passar pelo que eu passei e dou o caminho das pedras.
 
 ## 📋 Informações Técnicas
 
