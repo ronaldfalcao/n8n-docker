@@ -88,7 +88,7 @@ O container oficial do N8N roda em Aphine (Linux), mas não trás algumas ferram
    ./apk.static -X http://dl-cdn.alpinelinux.org/alpine/v3.22/main -U --allow-untrusted --initdb add apk-tools
    ```
 
-### Instalando o Python
+### 🐍 Instalando o Python
 
 Comando simples do APK para instalação do Python.
 
@@ -117,7 +117,7 @@ Outra ferramenta importante para o N8N é o NPM, um gestor de pacotes utilizados
 apk add npm
 ```
 
-### Ollama
+### 🐏Ollama
 
 Ollama é um sistema que facilita o uso de modelos (LLM) de código aberto (Gemma, DeepSeek, Mistral, Llama, entre outros.) em ambiente local e offline. Nesse ambiente que criei ele é interessante por ser muito versátil quando aos modelos disponíveis, por ser FREE (os modelos são opensource) e rodar localmente. Duas formas que você pode usar:
 
@@ -136,7 +136,32 @@ Mas para que você use ele (Ollama) no N8N você vai precisar usar a URL forneci
 http://host.docker.internal:11434
 ```
 
-Isso deve ser configurado no nó (node) Ollama em seu fluxo de trabalho. 
+Isso deve ser configurado no nó (node) Ollama em seu fluxo de trabalho.
+
+### NGROK
+
+Algo que descobri no meio do caminho: alguns serviços precisam de um acesso a partir de um domínio público e seguro (SSL) para funcionar. Como exemplo o Telegram, o Whatsapp, o GMail, e etc. Como estamos num ambiente local (localhost) isso não existe. Uma forma, fácil, de passar por essa etapa é usar um serviço chamado NGROK (https://ngrok.com/). Ele é, ainda, um serviço gratuíto que gera domínios não personalizados (ele gera a sua URL aleatoriamente com nomes estranhos) e redireciona as requisições feitas com esse domínio criado para o seu servidor local.
+
+![Fluxo NGROK](./images/graph.png)
+
+Quais são os passos para você utilizá-lo?
+
+1) Crie uma conta em https://ngrok.com/
+2) Ele vai gerar o seu "Your Authtoken", isso fica no menu Your Authtoken (fácil). Lembre-se dessa informação;
+3) Gere seu domínio. Também lembre-se dessa informação que fica no menu Domains, ela vai ser importante tanto agora na configuração quanto no seu dia a dia;
+4) Vá no Docker Desktop, no menu Extensions/Manager e busque por "ngrok". Ali teremos uma extensão oficial que vai facilitar nosso trabalho.
+5) Após instalar a extensão vá no ícone de engrenagem e na janela que abriu cole seu TOKEN e sua URL nos campos correspondentes (pedi para lembrar deles).
+6) Agora deve aparecer o seu container do N8N, ative o ENDPOINT e acesse a SUA URL PERSONALIZADA. Aqui uma atenção, o NGROK mostra uma tela inicial. Basta clicar em "Visit Site" para ele redirecionar para o seu N8N local.
+
+> [!IMPORTANT]
+Eu fiz tudo isso e não funcionou de primeira (oi?). Precisei alterar duas variáveis de ambiente:
+
+```sh
+N8N_EDITOR_BASE_URL
+WEBHOOK_URL
+```
+
+ Após alteradas tive que recriar o container para que funcionasse. Eis um dos mistérios da TI, algo que era para funcionar não funcionou. E por não estar com tempo não fiz um novo teste do zero. Então, fica a dica caso as coisas não funcionem de primeira. Os arquivos estão atualizados e basta você preencher como eu fiz. Estou colocando isso aqui porque alguém pode passar pelo que eu passei e dou o caminho das pedras.
 
 ## 📋 Informações Técnicas
 
