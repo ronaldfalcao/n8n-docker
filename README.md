@@ -1,4 +1,4 @@
-# Ambiente de Estudo n8n (Docker)
+# Ambiente de Estudo N8N (Docker Desktop)
 
 ![n8n](https://img.shields.io/badge/n8n-next-red?logo=n8n)
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
@@ -116,6 +116,27 @@ Outra ferramenta importante para o N8N é o NPM, um gestor de pacotes utilizados
 ```sh
 apk add npm
 ```
+
+### Ollama
+
+Ollama é um sistema que facilita o uso de modelos (LLM) de código aberto (Gemma, DeepSeek, Mistral, Llama, entre outros.) em ambiente local e offline. Nesse ambiente que criei ele é interessante por ser muito versátil quando aos modelos disponíveis, por ser FREE (os modelos são opensource) e rodar localmente. Duas formas que você pode usar:
+
+1. Instalando o Ollama Desktop, onde você tem uma interface de chat, configurações e download de modelos, que também disponibiliza um servidor que pode ser acessado localmente (USEI NESSE MODELO);
+2. Usar um container do Ollama no Docker com a imagem oficial.
+
+Ambas as formas são tranquilas de se fazer, a dica aqui é que se você for usar o Ollama desktop vai perceber que a URL de acesso para ele no seu ambiente é:
+
+```sh
+http://localhost:11434
+```
+
+Mas para que você use ele (Ollama) no N8N você vai precisar usar a URL fornecida pelo Docker Desktop que é:
+
+```sh
+http://host.docker.internal:11434
+```
+
+Isso deve ser configurado no nó (node) Ollama em seu fluxo de trabalho. 
 
 ## 📋 Informações Técnicas
 
